@@ -1,0 +1,31 @@
+# Node
+node_modules/
+npm-debug.log
+
+# Environment
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Docker
+docker-compose.override.yml
+
+# Terraform (important)
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Keys (VERY IMPORTANT)
+*.pem
+*.key
+
+# Build
+dist/
+build/
