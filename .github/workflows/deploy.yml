@@ -32,16 +32,14 @@ jobs:
 
     - name: Deploy to EC2
       run: |
-        ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-          cd /home/ec2-user
-          if [ ! -d ".git" ]; then
-            git clone https://github.com/anshtyagi-14/multi-container-app .
-            git fetch
-            git checkout -t origin/main
-          else
-            git pull origin main
-          fi
-          
-          docker-compose down
-          docker-compose up -d
-        EOF
+          ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+            cd /home/ec2-user
+
+            # always fresh copy (simple + reliable)
+            rm -rf app
+            git clone https://github.com/anshtyagi-14/multi-container-app app
+            cd app
+
+            docker-compose down
+            docker-compose up -d
+          EOF
