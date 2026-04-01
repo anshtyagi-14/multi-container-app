@@ -34,7 +34,12 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
           cd /home/ec2-user
-          docker-compose pull
+          if [ ! -d ".git" ]; then
+            git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git .
+          else
+            git pull origin main
+          fi
+          
           docker-compose down
           docker-compose up -d
         EOF
