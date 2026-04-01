@@ -38,6 +38,7 @@ jobs:
             # always fresh copy (simple + reliable)
             rm -rf app
             git clone https://github.com/anshtyagi-14/multi-container-app app
+            rm -f docker-compose.yml
             cd app
 
             docker-compose down
