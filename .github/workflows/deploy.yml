@@ -35,7 +35,9 @@ jobs:
         ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
           cd /home/ec2-user
           if [ ! -d ".git" ]; then
-            git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git .
+            git clone https://github.com/anshtyagi-14/multi-container-app .
+            git fetch
+            git checkout -t origin/main
           else
             git pull origin main
           fi
