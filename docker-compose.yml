@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   app:
-    build: ansh144/todo-app
+    image: ansh144/todo-app
     ports:
       - "3000:3000"
     depends_on:
