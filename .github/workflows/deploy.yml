@@ -42,7 +42,7 @@ jobs:
             rm -rf app
             git clone https://github.com/anshtyagi-14/multi-container-app app
             cd app
-
-            docker-compose down
-            docker-compose up -d
+            docker-compose up -d app-green
+            docker exec app-nginx-1 nginx -s reload
+            docker stop app-blue
           EOF
