@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div>
-      <h1>Todos</h1>
+      <h1>Todos </h1>
       {todos.map((t, i) => (
         <p key={i}>{t.title}</p>
       ))}

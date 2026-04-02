@@ -1,13 +1,13 @@
 version: "3.8"
 services:
   app-blue:
-    image: ansh144/todo-app:v1
+    image: ansh144/todo-app:latest
     container_name: app-blue
     ports:
       - "3001:3000"
 
   app-green:
-    image: ansh144/todo-app:v2
+    image: ansh144/todo-app:latest
     container_name: app-green
     ports:
       - "3002:3000"
