@@ -1,12 +1,16 @@
 version: "3.8"
 services:
-  app:
-    image: ansh144/todo-app
+  app-blue:
+    image: ansh144/todo-app:v1
+    container_name: app-blue
     ports:
-      - "3000:3000"
-    depends_on:
-      - mongo
-    restart: always
+      - "3001:3000"
+
+  app-green:
+    image: ansh144/todo-app:v2
+    container_name: app-green
+    ports:
+      - "3002:3000"
 
   mongo:
     image: mongo:latest
