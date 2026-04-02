@@ -14,7 +14,10 @@ mongoose.connect("mongodb://mongo:27017/todos")
 // GET all
 app.get("/todos", async (req, res) => {
   const todos = await Todo.find();
-  res.json(todos);
+  res.json({
+    version: "v2",
+    data: todos
+  });
 });
 
 // CREATE
